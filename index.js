@@ -1,5 +1,8 @@
 var express = require('express');
 var path = require('path');
+const session=require('express-session');
+
+
 var app = express();
 
 app.set('view engine', 'ejs');
@@ -9,15 +12,15 @@ app.use(express.static('public'));
 app.use("/",express.static(path.join(__dirname,"/web")));
 
 require("dotenv").config();
+
 app.use(session({
-  secret:process.env.SESSION_SECRETO,
-  resave:true,
-  saveUnitialized:true
+    secret:process.env.SESSION_SECRETO,
+    resave:true,
+    saveUnitialized:true
 }));
 
 var rutaUsu = require('./rutas/usuariosRutas');
 var rutasDis = require('./rutas/discosRutas');
-const { session } = require('inspector');
 
 
 app.use('/', rutaUsu);
