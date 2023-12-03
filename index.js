@@ -1,11 +1,18 @@
-var express = require('express');
+const express = require('express');
 var path = require('path');
-const session=require('express-session');
+var cors=require("cors");
+//const session=require('express-session');
+const  rutaUsu = require('./rutas/usuariosRutas');
+const rutasDis = require('./rutas/discosRutas');
 
+var session=require("cookie-session");
+require("dotenv").config();
 
 var app = express();
 
 app.set('view engine', 'ejs');
+app.use(cors());
+app.use(express.urlencoded({ extended: true }));
 app.set('views', path.join(__dirname, 'views'));
 app.use("/web",express.static(path.join(__dirname,"/web")));
 app.use(express.static('public'));
@@ -19,12 +26,10 @@ app.use(session({
     saveUnitialized:true
 }));
 
-var rutaUsu = require('./rutas/usuariosRutas');
-var rutasDis = require('./rutas/discosRutas');
 
 
 app.use('/', rutaUsu);
-app.use('/discos', rutasDis);
+app.use('/dis', rutasDis);
 
 
 const PORT = process.env.PORT || 3000;

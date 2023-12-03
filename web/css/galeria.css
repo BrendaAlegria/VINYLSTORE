@@ -10,7 +10,8 @@ header {
     background-image:url(../images/enca.png); 
     color: white;
     text-align: center;
-    padding: 20px;
+    padding: 10px;
+    height: 120px;
 }
 
 .gallery {
@@ -31,7 +32,7 @@ header {
 }
 
 .image:hover {
-    transform: scale(1.5); 
+    transform: scale(1.2); 
 }
 
 .image img {
@@ -39,7 +40,10 @@ header {
     height: 100%;
     object-fit: cover; 
 }
-
+.imagen-disco {
+    width: 100; /* Ancho deseado para todas las imágenes */
+    height: 100px; /* Altura automática para mantener la proporción */
+}
 .image-info {
     position: absolute;
     bottom: 0;
@@ -51,4 +55,44 @@ header {
     padding: 10px;
     opacity: 0;
     transition: opacity 0.3s ease;
+}
+
+
+
+.card-body {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background-color: white; /* Fondo blanco */
+    padding: 5px; /* Espaciado interno para separar del borde */
+}
+
+.image {
+    margin: 0px; /* Espaciado entre las imágenes */
+    text-align: center;
+}
+
+.image img {
+    width: 300px; /* Ancho máximo de la imagen */
+    height: auto; /* Altura automática para mantener la proporción */
+    border: 1px solid #ddd; /* Borde alrededor de la imagen */
+    border-radius: 8px; /* Bordes redondeados */
+}
+
+
+.btn-primary {
+    background-color: #000000; /* Color de fondo del botón primario */
+    color: white; /* Color del texto del botón */
+    text-decoration: none; /* Sin subrayado en el texto del botón */
+    padding: 8px 16px; /* Espaciado interno del botón */
+    border-radius: 4px; /* Bordes redondeados del botón */
+}
+.custom-font {
+    font-family: 'TuFuente', monospace; /* Reemplaza 'TuFuente' con el nombre de la fuente deseada */
+    /* Otros estilos de fuente si es necesario, como tamaño, peso, etc. */
+}
+/* Estilo personalizado para el ancho del contenedor */
+.ancho-personalizado {
+    width: 800px; /* Puedes ajustar este valor según tus necesidades */
+    margin: 0 auto; /* Centra el contenedor horizontalmente */
 }

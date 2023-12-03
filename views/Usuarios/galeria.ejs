@@ -1,52 +1,28 @@
 <%- include ("../templates/encaInici")%>
-<%- include ("../templates/menu")%>
+<% if (tipo == undefined) { %>
+    <%- include ("../templates/menuAdmin")%>
+<% } else { %>
+    <%- include ("../templates/menuUsuarios")%>
+<% } %>
 <header>
     <h1>Galería de Vinilos</h1>
 </header>
+<br>
 <div class="gallery">
-    <div class="image">
-        <img src="/web/images/billie.jpeg" alt="Vinilo 1">
-    </div>
-    <div class="image">
-        <img src="/web/images/harry.jpeg" alt="Vinilo 2">
-    </div>
-    <div class="image">
-        <img src="/web/images/louisss.jpeg" alt="Vinilo 1">
-    </div>
-    <div class="image">
-        <img src="/web/images/rojo.jpeg" alt="Vinilo 2">
-    </div>
-    <div class="image">
-        <img src="/web/images/lui.jpeg" alt="Vinilo 1">
-    </div>
-    <div class="image">
-        <img src="/web/images/harryhouse.jpeg" alt="Vinilo 2">
-    </div>
-    <div class="image">
-        <img src="/web/images/louisss.jpeg" alt="Vinilo 1">
-    </div>
-    <div class="image">
-        <img src="/web/images/harryhouse.jpeg" alt="Vinilo 2">
-    </div>
-    <div class="image">
-        <img src="/web/images/billie.jpeg" alt="Vinilo 1">
-    </div>
-    <div class="image">
-        <img src="/web/images/harry.jpeg" alt="Vinilo 2">
-    </div>
-    <div class="image">
-        <img src="/web/images/louisss.jpeg" alt="Vinilo 1">
-    </div>
-    <div class="image">
-        <img src="/web/images/billie.jpeg" alt="Vinilo 1">
-    </div>
-    <div class="image">
-        <img src="/web/images/harry.jpeg" alt="Vinilo 2">
-    </div>
-    <div class="image">
-        <img src="/web/images/louisss.jpeg" alt="Vinilo 1">
-    </div>
-    
+    <% discos.forEach((disco) => { %>
+        <div class="image">
+            <img src="/images/<%= disco.foto %>" alt="<%= disco.nombre %>" class="imagen-disco">
+            <div class="card-body">
+                <h4 class="card-title custom-font"><%= disco.nombre %></h4>
+                <p class="card-text custom-font">Artista: <%= disco.artista %></p>
+                <p class="card-text custom-font">Duración: <%= disco.duracion %></p>
+                <p class="card-text custom-font">Precio: <%= disco.precio %></p>
+                <br>
+            <form method="POST" action="/dis/dis/agreLike/<%= disco.id %>">
+                <button type="submit" class="form-control  btn btn-primary">Me Gusta</button>
+            </form>
+            </div>
+        </div>
+    <% }); %>
 </div>
-
 <%- include ("../templates/pie")%>

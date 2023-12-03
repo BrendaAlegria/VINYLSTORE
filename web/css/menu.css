@@ -1,6 +1,7 @@
 body {
     margin: 0;
     padding: 0;
+    font-family: fuenteTitulo9;
 }
 
 nav {
@@ -13,12 +14,12 @@ nav ul {
     list-style: none;
     padding: 0;
     margin: 0;
-    display: flex; /* Muestra los elementos en línea (horizontalmente) */
-    justify-content: center; /* Centra los elementos horizontalmente */
+    display: flex; 
+    justify-content: center; 
 }
 
 nav ul li {
-    margin: 0 20px; /* Agrega espacio entre los elementos del menú */
+    margin: 0 20px; 
 }
 
 nav ul li a {
@@ -29,5 +30,5 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    color: #9a5cadf9; /* Cambia el color al pasar el ratón por encima */
+    color: #9a5cadf9; 
 }
